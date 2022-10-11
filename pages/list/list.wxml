@@ -1,0 +1,29 @@
+<view>
+    <!-- Tab布局 -->
+    <view class='navBox'>
+        <view class='titleBox' bindtap='titleClick' data-idx='0'>
+            <text class="{{0 == currentIndex ? 'fontColorBox' : ''}}">课程信息</text>
+            <hr class="{{0 == currentIndex ? 'lineBox' : 'notLineBox'}}" />
+        </view>
+        <view class='titleBox' bindtap='titleClick' data-idx='1'>
+            <text class="{{1 == currentIndex ? 'fontColorBox1' : ''}}">上传名单</text>
+            <hr class="{{1 == currentIndex ? 'lineBox' : 'notLineBox'}} " />
+        </view>
+        <view class='titleBox' bindtap='titleClick' data-idx='2'>
+            <text class="{{2 == currentIndex ? 'fontColorBox2' : ''}}">点名选项</text>
+            <hr class="{{2 == currentIndex ? 'lineBox' : 'notLineBox'}} " />
+        </view>
+    </view>
+    <!-- 内容布局 -->
+    <swiper class='swiperTtemBox' bindchange='pagechange' current='{{currentIndex}}'>
+        <swiper-item class='swiperTtemBox'>
+            <view>课程信息</view>
+        </swiper-item>
+        <swiper-item class='swiperTtemBox'>
+            <view>上传名单</view>
+        </swiper-item>
+        <swiper-item class='swiperTtemBox'>
+            <view>点名选项</view>
+        </swiper-item>
+    </swiper>
+</view>

@@ -1,0 +1,71 @@
+Page {
+    /* 全局样式 */
+    background: rgb(244, 245, 249);
+    height: 100%;
+    position: fixed;
+}
+
+.fontColorBox,
+.fontColorBox1,
+.fontColorBox2 {
+    /* 文字默认颜色 */
+    color: black;
+}
+
+.navBox {
+    /* 顶部tab盒子样式 */
+    width: 100%;
+    height: 108rpx;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navBox view:nth-child(0) {
+    /* padding-left: 0%; */
+    padding-left: 10%;
+}
+.navBox view:nth-child(1) {
+    /* padding-left: 0%; */
+    padding-right: 10%;
+}
+.navBox view:nth-child(2) {
+    /* padding-left: 0%; */
+    padding-right: 10%;
+}
+
+.titleBox {
+    /* 未选中文字的样式 */
+    color: rgb(168, 170, 175);
+    font-size: 30rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.lineBox,.notLineBox{
+    /* 选中及未选中底线共同样式 */
+    width: 32rpx;
+    height: 8rpx;
+}
+
+.lineBox {
+    /* 选中底线样式 */
+    background: rgb(43, 44, 45);
+    margin-top: 16rpx;
+    border-radius: 4rpx;
+}
+
+.notLineBox {
+    /* 未选中底线样式 */
+    background: transparent;
+}
+
+.swiperTtemBox {
+    /* 底部内容样式 */
+    height: 100vh;
+    overflow: scroll;
+    /* margin: 0rpx 0rpx; */
+    background: white;
+    font-size: 28rpx;
+}
