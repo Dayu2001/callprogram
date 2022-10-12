@@ -1,10 +1,3 @@
-Page {
-    /* 全局样式 */
-    background: rgb(244, 245, 249);
-    height: 100%;
-    position: fixed;
-}
-
 .fontColorBox,
 .fontColorBox1,
 .fontColorBox2 {
@@ -22,18 +15,15 @@ Page {
     justify-content: center;
 }
 
-.navBox view:nth-child(0) {
-    /* padding-left: 0%; */
+/* .navBox view:nth-child(0) {
     padding-left: 10%;
 }
 .navBox view:nth-child(1) {
-    /* padding-left: 0%; */
     padding-right: 10%;
 }
 .navBox view:nth-child(2) {
-    /* padding-left: 0%; */
     padding-right: 10%;
-}
+} */
 
 .titleBox {
     /* 未选中文字的样式 */
@@ -42,6 +32,7 @@ Page {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-inline: 5%;
 }
 .lineBox,.notLineBox{
     /* 选中及未选中底线共同样式 */
@@ -68,4 +59,9 @@ Page {
     /* margin: 0rpx 0rpx; */
     background: white;
     font-size: 28rpx;
+}
+
+.right_switch {
+    border: 1px solid lightgreen;
+    padding-left: 60%;
 }

@@ -17,26 +17,26 @@
     <!-- 内容布局 -->
     <swiper class='swiperTtemBox' bindchange='pagechange' current='{{currentIndex}}'>
         <swiper-item class='swiperTtemBox'>
-            <view class="course-name">
-                <view class="course-name_title">课程名称</view>
-                <view class="course-name_input">
-                    <input class="weui-input" placeholder="请输入要点名的课程名称" />
+            <view class="course_name">
+                <view class="label-title">课程名称</view>
+                <view class="course_name_input">
+                    <input class="weui_input" placeholder="请输入要点名的课程名称" />
                 </view>
             </view>
-            <view class="course-teacher">
-                <view class="course-teacher_title">任课老师</view>
-                <view class="course-teacher_input">
-                    <input class="weui-input" placeholder="请输入该课程的任课老师" />
+            <view class="course_teacher">
+                <view class="label-title">任课老师</view>
+                <view class="course_teacher_input">
+                    <input class="weui_input" placeholder="请输入该课程的任课老师" />
                 </view>
             </view>
             <view class="date">
-                <view class="date_title">日期</view>
+                <view class="label-title">日期</view>
                 <view class="date_text">
                     <text>{{time}}</text>
                 </view>
             </view>
             <view class="chapter">
-            <view class="chapter_title">节数</view>
+            <view class="label-title">节数</view>
             <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
                 <view class="chapter_picker">
                     {{multiArray[0][multiIndex[0]]}} 到 {{multiArray[1][multiIndex[1]]}}
@@ -48,11 +48,10 @@
             <view>上传名单</view>
         </swiper-item>
         <swiper-item class='swiperTtemBox'>
-            <view class="section section_gap">
-                <view class="check_title">全点 / 抽点</view>
-                <view class="body-view">
-                    <switch checked="{{switch1Checked}}" bindchange="switch1Change"/>
-                </view>
+            <view class="section_call">
+                <!-- <switch checked="{{switch1Checked}}" bindchange="switch1Change"/> -->
+                <text>全点 / 抽点</text>
+                <switch class="right_switch" checked="{{switch1Checked}}"/>
             </view>
         </swiper-item>
     </swiper>
