@@ -27,7 +27,7 @@ Page({
     // 切换swiper-item触发bindchange事件
     pagechange: function (e) {
         // 通过touch判断，改变tab的下标值
-        if ("touch" === e.detail.source) {
+        if ('touch' === e.detail.source) {
             this.setData({
                 currentIndex: e.detail.current
             });
