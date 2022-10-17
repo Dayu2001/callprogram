@@ -1,4 +1,5 @@
 var util = require('../../utils/util.js');
+var file = require('../../utils/file.js');
 
 const app = getApp()
 Page({
@@ -12,6 +13,8 @@ Page({
             ['第一节', '第二节', '第三节', '第四节', '第五节', '第六节', '第七节', '第八节', '第九节', '第十节'],
         ],
         multiIndex: [0, 0],
+
+        previewData: [],
     },
 
     onLoad() {
@@ -91,5 +94,19 @@ Page({
         }
         // console.log(data.multiIndex);
         this.setData(data);
+    },
+
+    add_excel_file: function (e) {
+        file.add_excel_file();
+    },
+    generate_list: function (e) {
+        var that = this;
+        file.generate_list().then(
+            function(array) {
+                that.setData({
+                    previewData: array
+                });
+            }
+        );
     },
 })

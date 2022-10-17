@@ -16,43 +16,52 @@
     </view>
     <!-- 内容布局 -->
     <swiper class='swiperTtemBox' bindchange='pagechange' current='{{currentIndex}}'>
+        <!-- 课程信息 -->
         <swiper-item class='swiperTtemBox'>
-            <view class="course_name">
+            <!-- 课程名称 -->
+            <view class="setting-part">
                 <view class="label-title">课程名称</view>
-                <view class="course_name_input">
-                    <input class="weui_input" placeholder="请输入要点名的课程名称" />
-                </view>
+                <input class="input-box" placeholder="请输入要点名的课程名称" />
             </view>
-            <view class="course_teacher">
+            <!-- 任课老师 -->
+            <view class="setting-part">
                 <view class="label-title">任课老师</view>
-                <view class="course_teacher_input">
-                    <input class="weui_input" placeholder="请输入该课程的任课老师" />
-                </view>
+                <input class="input-box" placeholder="请输入该课程的任课老师" />
             </view>
-            <view class="date">
+            <!-- 日期 -->
+            <view class="setting-part">
                 <view class="label-title">日期</view>
-                <view class="date_text">
-                    <text>{{time}}</text>
-                </view>
+                <text class="input-box">{{time}}</text>
             </view>
-            <view class="chapter">
-            <view class="label-title">节数</view>
-            <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
-                <view class="chapter_picker">
-                    {{multiArray[0][multiIndex[0]]}} 到 {{multiArray[1][multiIndex[1]]}}
-                </view>
-            </picker>
+            <!-- 节数 -->
+            <view class="setting-part">
+                <view class="label-title">节数</view>
+                <picker class="input-box" mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+                        {{multiArray[0][multiIndex[0]]}} 到 {{multiArray[1][multiIndex[1]]}}
+                </picker>
             </view>
         </swiper-item>
+        <!-- 上传名单 -->
         <swiper-item class='swiperTtemBox'>
-            <view>上传名单</view>
+            <button bindtap="add_excel_file"> 上传excel文件 </button>
+            <button bindtap="generate_list"> 生成名单 </button>
+            <view class="container">
+                <view class="map">
+                    <view wx:for="{{previewData}}">
+                        {{item.name}}
+                    </view>
+                </view>
+            </view>
         </swiper-item>
+        <!-- 点名选项 -->
         <swiper-item class='swiperTtemBox'>
-            <view class="section_call">
-                <!-- <switch checked="{{switch1Checked}}" bindchange="switch1Change"/> -->
-                <text>全点 / 抽点</text>
-                <switch class="right_switch" checked="{{switch1Checked}}"/>
+            <view class="setting-part">
+                <view class="label-title">全点 / 抽点</view>
+                <switch class="right-switch" checked="{{switch1Checked}}"/>
             </view>
         </swiper-item>
     </swiper>
+    <view class="bottom-bar" id="buttonContainer">
+        <button type="primary" disabled="{{false}}" style="width: 100%;">开始点名</button>
+    </view>
 </view>
