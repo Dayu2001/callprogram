@@ -1,7 +1,7 @@
 {
     "pages": [
-        "pages/card/card",
         "pages/list/list",
+        "pages/card/card",
         "pages/checklist/checklist",
         "pages/index/index",
         "pages/file/file",

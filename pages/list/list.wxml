@@ -31,7 +31,7 @@
             <!-- 日期 -->
             <view class="setting-part">
                 <view class="label-title">日期</view>
-                <text class="input-box">{{time}}</text>
+                <text class="input-box">{{date}}</text>
             </view>
             <!-- 节数 -->
             <view class="setting-part">
@@ -62,6 +62,6 @@
         </swiper-item>
     </swiper>
     <view class="bottom-bar" id="buttonContainer">
-        <button type="primary" disabled="{{false}}" style="width: 100%;">开始点名</button>
+        <button type="primary" disabled="{{complete}}" style="width: 100%;" bindtap="gotocard">开始点名</button>
     </view>
 </view>

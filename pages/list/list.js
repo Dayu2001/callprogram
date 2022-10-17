@@ -4,23 +4,34 @@ var file = require('../../utils/file.js');
 const app = getApp()
 Page({
     data: {
-        currentIndex: 0, //默认是活动项
-
-        time: '',
-
+        // 页面下标
+        currentIndex: 0,
+        // 节数
         multiArray: [
             ['第一节', '第二节', '第三节', '第四节', '第五节', '第六节', '第七节', '第八节', '第九节', '第十节'],
             ['第一节', '第二节', '第三节', '第四节', '第五节', '第六节', '第七节', '第八节', '第九节', '第十节'],
         ],
+        // 节数数组下标
         multiIndex: [0, 0],
 
+        // 预览名单
         previewData: [],
+
+        // 是否填完课程数据（取反值）
+        complete: false,
+
+        // 课程数据
+        course: '',
+        teacher: '',
+        date: '',
+        selective: false,
     },
 
+    // 加载页面
     onLoad() {
         var TIME = util.formatDate(new Date());
         this.setData({
-            time: TIME,
+            date: TIME,
         });
     },
 
@@ -96,9 +107,11 @@ Page({
         this.setData(data);
     },
 
+    // 上传 excel 文件
     add_excel_file: function (e) {
         file.add_excel_file();
     },
+    // 生成预览名单
     generate_list: function (e) {
         var that = this;
         file.generate_list().then(
@@ -109,4 +122,11 @@ Page({
             }
         );
     },
+
+    // 跳转至点名页面
+    gotocard: function (e) {
+        wx.navigateTo({
+          url: '/pages/card/card',
+        })
+    }
 })
