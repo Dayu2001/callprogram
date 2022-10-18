@@ -14,6 +14,10 @@ App({
         })
     },
     globalData: {
+        filename : "",
+        array : [],
+        total : 0,
+        currentId : 0,
         userInfo: null
     }
 })

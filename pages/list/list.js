@@ -109,18 +109,22 @@ Page({
 
     // 上传 excel 文件
     add_excel_file: function (e) {
-        file.add_excel_file();
+        var that = this;
+        file.add_excel_file().then(res => {
+            that.setData({
+                previewData : app.globalData.array
+            })
+        })
+        
     },
     // 生成预览名单
     generate_list: function (e) {
-        var that = this;
-        file.generate_list().then(
-            function(array) {
-                that.setData({
-                    previewData: array
-                });
-            }
-        );
+        // var that = this;
+        // file.generate_list();
+        // var app = getApp();
+        // that.setData({
+        //     previewData: app.globalData.array
+        // });
     },
 
     // 跳转至点名页面

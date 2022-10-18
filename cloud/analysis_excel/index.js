@@ -55,7 +55,8 @@ exports.main = async (event, context) => {
             data: {
                 student_ID: _student_ID,
                 name: _name,
-                filename : filename
+                filename : filename,
+                state : "present"
             }
         })
         row++;

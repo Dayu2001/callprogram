@@ -44,7 +44,7 @@
         <!-- 上传名单 -->
         <swiper-item class='swiperTtemBox'>
             <button bindtap="add_excel_file"> 上传excel文件 </button>
-            <button bindtap="generate_list"> 生成名单 </button>
+            <!-- <button bindtap="generate_list"> 生成名单 </button> -->
             <view class="container">
                 <view class="map">
                     <view wx:for="{{previewData}}">

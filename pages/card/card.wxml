@@ -27,8 +27,10 @@
                 <swiper-item class="swiperTtemBox">
                     <view class="main">
                         <!-- 学号 + 姓名 -->
-                        <text>000000001</text>
-                        <text>张三</text>
+                        <text>{{student_ID}}</text>
+                        <text>{{name}}</text>
+                        <!-- <text>000000001</text>
+                        <text>张三</text> -->
                     </view>
                 </swiper-item>
                 <swiper-item class="swiperTtemBox">
