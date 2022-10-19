@@ -24,7 +24,7 @@
     font-size: 80rpx;
     align-items: flex-start;
     justify-content: center;
-    background: green;
+    background: rgb(137, 255, 137);
 }
 .left-bar {
     display: flex;
@@ -33,7 +33,7 @@
     font-size: 80rpx;
     align-items: center;
     justify-content: flex-end;
-    background: red;
+    background: rgb(255, 70, 70);
 }
 .right-bar {
     display: flex;
@@ -42,7 +42,7 @@
     font-size: 80rpx;
     align-items: center;
     justify-content: flex-start;
-    background: yellow;
+    background: rgb(255, 255, 70);
 }
 .main {
     display: flex;
@@ -52,7 +52,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background: lightgray;
+    background: rgb(244, 244, 244);
 }
 .vertical-text {
     padding-left: 5%;

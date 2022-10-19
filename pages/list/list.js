@@ -18,13 +18,16 @@ Page({
         previewData: [],
 
         // 是否填完课程数据（取反值）
-        complete: false,
+        complete: true,
 
         // 课程数据
         course: '',
         teacher: '',
         date: '',
-        selective: false,
+        start: '',
+        end: '',
+        uploaded: false,
+        all_spot: false,
     },
 
     // 加载页面
@@ -59,7 +62,7 @@ Page({
             multiIndex: e.detail.value
         })
     },
-    bindMultiPickerColumnChange: function (e) {
+    getStartEnd: function (e) {
         // console.log('修改的列为', e.detail.column, '，值为', e.detail.value);
         var data = {
             multiArray: this.data.multiArray,
@@ -103,8 +106,18 @@ Page({
                 data.multiIndex[1] = 0;
                 break;
         }
-        // console.log(data.multiIndex);
         this.setData(data);
+        this.setData({
+            start: data.multiArray[0][data.multiIndex[0]],
+            end: data.multiArray[1][data.multiIndex[1]],
+        });
+    },
+
+    // 跳转至点名页面
+    gotocard: function (e) {
+        wx.navigateTo({
+            url: '/pages/card/card',
+        })
     },
 
     // 上传 excel 文件
@@ -112,25 +125,53 @@ Page({
         var that = this;
         file.add_excel_file().then(res => {
             that.setData({
-                previewData : app.globalData.array
-            })
-        })
-        
+                previewData : app.globalData.array,
+                uploaded : true,
+            });
+            that.checkStartButton();
+        });
     },
     // 生成预览名单
-    generate_list: function (e) {
+    // generate_list: function (e) {
         // var that = this;
         // file.generate_list();
         // var app = getApp();
         // that.setData({
         //     previewData: app.globalData.array
         // });
-    },
+    // },
 
-    // 跳转至点名页面
-    gotocard: function (e) {
-        wx.navigateTo({
-          url: '/pages/card/card',
-        })
+    checkStartButton: function () {
+        if(this.data.course.length == 0) {
+            this.setData({complete: true});
+            return;
+        }
+        if(this.data.teacher.length == 0) {
+            this.setData({complete: true});
+            return;
+        }
+        if(this.data.uploaded == false) {
+            this.setData({complete: true});
+            return;
+        }
+        this.setData({complete: false});
+        return;
+    },
+    getCourse: function (e) {
+        this.setData({
+            course: e.detail.value
+        });
+        this.checkStartButton();
+    },
+    getTeacher: function (e) {
+        this.setData({
+            teacher: e.detail.value
+        });
+        this.checkStartButton();
+    },
+    switch1Change: function (e) {
+        this.setData({
+            all_spot: e.detail.value
+        });
     }
 })

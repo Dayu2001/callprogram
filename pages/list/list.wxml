@@ -21,12 +21,12 @@
             <!-- 课程名称 -->
             <view class="setting-part">
                 <view class="label-title">课程名称</view>
-                <input class="input-box" placeholder="请输入要点名的课程名称" />
+                <input class="input-box" placeholder="请输入要点名的课程名称" bindinput="getCourse" />
             </view>
             <!-- 任课老师 -->
             <view class="setting-part">
                 <view class="label-title">任课老师</view>
-                <input class="input-box" placeholder="请输入该课程的任课老师" />
+                <input class="input-box" placeholder="请输入该课程的任课老师" bindinput="getTeacher" />
             </view>
             <!-- 日期 -->
             <view class="setting-part">
@@ -36,7 +36,7 @@
             <!-- 节数 -->
             <view class="setting-part">
                 <view class="label-title">节数</view>
-                <picker class="input-box" mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+                <picker class="input-box" mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="getStartEnd" value="{{multiIndex}}" range="{{multiArray}}">
                         {{multiArray[0][multiIndex[0]]}} 到 {{multiArray[1][multiIndex[1]]}}
                 </picker>
             </view>
@@ -45,19 +45,28 @@
         <swiper-item class='swiperTtemBox'>
             <button bindtap="add_excel_file"> 上传excel文件 </button>
             <!-- <button bindtap="generate_list"> 生成名单 </button> -->
-            <view class="container">
+            <!-- <view class="container">
                 <view class="map">
                     <view wx:for="{{previewData}}">
                         {{item.name}}
                     </view>
                 </view>
+            </view> -->
+            <view class="form-title">预览名单</view>
+            <view class="preview-form">
+                <scroll-view scroll-y="{{true}}" style="height: 60vh;" >
+                    <view class="form-subitem" wx:for="{{previewData}}">
+                        <text class="form-number">{{item.student_ID}}</text>
+                        <text class="form-name">{{item.name}}</text>
+                    </view>
+                </scroll-view>
             </view>
         </swiper-item>
         <!-- 点名选项 -->
         <swiper-item class='swiperTtemBox'>
             <view class="setting-part">
                 <view class="label-title">全点 / 抽点</view>
-                <switch class="right-switch" checked="{{switch1Checked}}"/>
+                <switch class="right-switch" checked="{{false}}" bindchange="switch1Change" />
             </view>
         </swiper-item>
     </swiper>
