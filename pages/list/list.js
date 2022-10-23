@@ -15,7 +15,7 @@ Page({
         multiIndex: [0, 0],
 
         // 预览名单
-        previewData: [],
+        previewData: null,
 
         // 是否填完课程数据（取反值）
         complete: true,
@@ -24,6 +24,7 @@ Page({
         course: '',
         teacher: '',
         date: '',
+        weekday: '',
         start: '',
         end: '',
         uploaded: false,
@@ -32,9 +33,12 @@ Page({
 
     // 加载页面
     onLoad() {
-        var TIME = util.formatDate(new Date());
+        var DATE = new Date();
+        var TIME = util.formatDate(DATE);
+        var WEEKDAY = util.formatWeekday(DATE);
         this.setData({
             date: TIME,
+            weekday: WEEKDAY
         });
     },
 
@@ -115,6 +119,12 @@ Page({
 
     // 跳转至点名页面
     gotocard: function (e) {
+        app.globalData.course = this.data.course;
+        app.globalData.teacher = this.data.teacher;
+        app.globalData.date = this.data.date;
+        app.globalData.weekday = this.data.weekday;
+        app.globalData.start = this.data.start;
+        app.globalData.end = this.data.end;
         wx.navigateTo({
             url: '/pages/card/card',
         })

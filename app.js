@@ -18,6 +18,12 @@ App({
         array : [],
         total : 0,
         currentId : 0,
-        userInfo: null
+        userInfo: null,
+        course: "",
+        teacher: "",
+        date: "",
+        weekday: '',
+        start: "",
+        end: ""
     }
 })

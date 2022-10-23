@@ -132,6 +132,11 @@ var callnext = () => {
         return true;
     }
 }
+var setCurrentId = (_id) => {
+    var app = getApp();
+    app.globalData.currentId = _id;
+}
+
 
 const revoke = () => {
     var app = getApp();
@@ -148,6 +153,7 @@ const updatestate = (state) => {
     var currentId = app.globalData.currentId;
     var student_ID = app.globalData.array[currentId].student_ID;
     var name = app.globalData.array[currentId].name;
+    app.globalData.array[currentId].state = state;
     wx.cloud.callFunction({
         name: "get_database",
         data: {
@@ -164,7 +170,6 @@ const updatestate = (state) => {
             console.log(err);
         }
     })
-    callnext();
 }
 
 module.exports = {
@@ -173,6 +178,7 @@ module.exports = {
     generate_list,
     uploadfile,
     callnext,
+    setCurrentId,
     revoke,
     updatestate
 }

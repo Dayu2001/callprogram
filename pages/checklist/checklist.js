@@ -1,66 +1,47 @@
 // pages/checklist/checklist.js
+var file = require('../../utils/file.js');
+
+const app = getApp()
+
 Page({
-
-    /**
-     * 页面的初始数据
-     */
     data: {
-
+        previewData: null,
+        mark: [
+            {value: 'present', name: '点到'},
+            {value: 'cut', name: '旷课'},
+            {value: 'leave', name: '请假'},
+        ]
     },
-
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad(options) {
-
+    onLoad () {
+        var that = this;
+        file.generate_list().then(res => {
+            that.setData({
+                previewData : app.globalData.array,
+            });
+        });
+        console.log(app.globalData.course);
+        console.log(app.globalData.teacher);
+        console.log(app.globalData.date);
+        console.log(app.globalData.weekday);
+        console.log(app.globalData.start);
+        console.log(app.globalData.end);
+        
+        // console.log(previewData);
     },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload() {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh() {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom() {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage() {
-
+    radioChange: function (e) {
+        const items = this.data.mark;
+        var id = e.currentTarget.id;
+        file.setCurrentId(id);
+        for(let i = 0, len = items.length; i < len; i++) {
+            items[i].checked = items[i].value === e.detail.value;
+            if(items[i].checked == true) {
+                file.updatestate(items[i].value);
+                console.log("global: " + app.globalData.array[id].state);
+                console.log("preview: " + this.data.previewData[id].state);
+            }
+        }
+        this.setData({
+            items
+        });
     }
 })

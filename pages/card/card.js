@@ -1,5 +1,6 @@
 // pages/rollcallcard/card.js
 var file = require('../../utils/file.js');
+var complete = true;
 Page({
     data: {
         vertIndex: 1,
@@ -19,9 +20,11 @@ Page({
                 // this.setData({
                 //     operationName: 'revoke'
                 // });
+                complete = true;
             }
             else if(e.detail.current == 2) {
                 file.updatestate("present");
+                complete = file.callnext();
                 // this.setData({
                 //     operationName: 'present'
                 // });
@@ -30,19 +33,24 @@ Page({
             this.setData({
                 vertIndex: 1,
             });
-            this._load();
+            if(complete == true)
+                this._load();
+            else
+                this.gotocard();
         }
     },
     horiPageChange: function (e) {
         if('touch' == e.detail.source) {
             if(e.detail.current == 0) {
                 file.updatestate("cut");
+                complete = file.callnext();
                 // this.setData({
                 //     operationName: 'cut'
                 // });
             }
             else if(e.detail.current == 2) {
                 file.updatestate("leave");
+                complete = file.callnext();
                 // this.setData({
                 //     operationName: 'leave'
                 // });
@@ -51,8 +59,17 @@ Page({
             this.setData({
                 horiIndex: 1,
             });
-            this._load();
+            if(complete == true)
+                this._load();
+            else
+                this.gotocard();
         }
+    },
+    // 跳转至确认页面
+    gotocard: function (e) {
+        wx.navigateTo({
+            url: '/pages/checklist/checklist',
+        })
     },
     _load: function(e) {
         var app = getApp();
