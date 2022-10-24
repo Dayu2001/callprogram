@@ -14,6 +14,7 @@ App({
         })
     },
     globalData: {
+        fileID : "",
         filename : "",
         array : [],
         total : 0,

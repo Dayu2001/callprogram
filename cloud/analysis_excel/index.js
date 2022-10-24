@@ -48,7 +48,8 @@ exports.main = async (event, context) => {
     // var namelist = "namelist" + filename;
     // console.log("namelist = " + namelist);
     while(row <= arr.length && arr[row].length > 0 && judgeID(arr[row][0])) {
-        var _student_ID = arr[row][0];
+        var _student_ID = arr[row][0].toString();
+        while(_student_ID.length < 9) _student_ID = '0' + _student_ID;
         var _name = arr[row][1];
         // console.log(_student_ID + " " + _name);
         db.collection("namelist").add({

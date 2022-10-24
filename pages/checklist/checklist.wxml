@@ -22,6 +22,6 @@
         </scroll-view>
     </view>
     <view class="bottom-bar" id="buttonContainer">
-        <button type="primary" style="width: 100%;">生成表格</button>
+        <button bindtap="load_excel_file" type="primary" style="width: 100%;">生成表格</button>
     </view>
 </view>

@@ -55,7 +55,7 @@
             <view class="form-title">预览名单</view>
             <view class="preview-form">
                 <scroll-view scroll-y="{{true}}" style="height: 60vh;" >
-                    <view class="form-subitem" wx:for="{{previewData}}">
+                    <view class="form-subitem" wx:for="{{previewData}}" wx:key="student_ID">
                         <text class="form-number">{{item.student_ID}}</text>
                         <text class="form-name">{{item.name}}</text>
                     </view>

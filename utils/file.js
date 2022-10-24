@@ -118,6 +118,8 @@ const uploadfile = (tempFile) => {
             filePath: tempFile, // 文件路径
         }).then(res => {
             console.log("上传成功", res)
+            app.globalData.fileID = res.fileID;
+            // console.log(app.globalData.fileID);
             resolve(res.fileID)
         })
     })
