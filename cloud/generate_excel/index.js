@@ -40,15 +40,17 @@ exports.main = async (event, context) => {
         data : allData
     }]);
     console.log(cloudPath);
-    // cloud.deleteFile({
-    //     fileList: [cloudPath],
-    //     success(res) {
-    //         console.log(res, '文件删除成功')
-    //     },
-    //     fail(res) {
-    //         console.log(res, "文件删除失败")
-    //     }
-    // })
+       
+//   const fileIDs = ['xxx', 'xxx']
+//   const result = await cloud.deleteFile({
+//     fileList: fileIDs,
+//   })
+//   return result.fileList
+// }
+    const result = await cloud.deleteFile({
+        fileList: [cloudPath],
+    })
+    console.log(result.fileList);
     return await cloud.uploadFile({
         cloudPath : event.filename + ".xlsx",
         fileContent : buffer

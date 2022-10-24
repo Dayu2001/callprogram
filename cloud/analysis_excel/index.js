@@ -63,6 +63,7 @@ exports.main = async (event, context) => {
         row++;
     }
     console.log("数据上传完成");
+    console.log(fileID);
     cloud.deleteFile({
         fileList: [fileID],
         success(res) {
