@@ -14,6 +14,17 @@ App({
         })
     },
     globalData: {
-        userInfo: null
+        fileID : "",
+        filename : "",
+        array : [],
+        total : 0,
+        currentId : 0,
+        userInfo: null,
+        course: "",
+        teacher: "",
+        date: "",
+        weekday: '',
+        start: "",
+        end: ""
     }
 })

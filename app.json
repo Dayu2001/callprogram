@@ -2,7 +2,8 @@
     "pages": [
         "pages/list/list",
         "pages/card/card",
-        "pages/index/index",
+        "pages/checklist/checklist",
+        "pages/file/file",
         "pages/logs/logs"
     ],
     "window": {

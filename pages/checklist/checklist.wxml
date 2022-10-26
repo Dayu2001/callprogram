@@ -1,0 +1,27 @@
+<!--pages/checklist/checklist.wxml-->
+<view>
+    <view class="form-title">预览名单</view>
+    <view class="preview-form">
+        <scroll-view scroll-y="{{true}}" style="height: 80vh;" >
+            <view class="form-subitem" wx:for="{{previewData}}" wx:for-index="item_index">
+                <view style="flex-direction:column;">
+                    <view class="form-subitem-part1">
+                        <text class="form-number">{{item.student_ID}}</text>
+                        <text class="form-name">{{item.name}}</text>
+                    </view>
+                    <radio-group id="{{item_index}}" bindchange="radioChange">
+                        <view class="form-subitem-part2">
+                            <label class="marks" wx:for="{{mark}}" wx:for-item="_mark" wx:key="{{_mark.value}}" style="display:flex;">
+                                <radio class="mark1" value="{{_mark.value}}" checked="{{item.state == _mark.value}}"/>
+                                <view class="mark2">{{_mark.name}}</view>
+                            </label>
+                        </view>
+                    </radio-group>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+    <view class="bottom-bar" id="buttonContainer">
+        <button bindtap="load_excel_file" type="primary" style="width: 100%;">生成表格</button>
+    </view>
+</view>

@@ -1,0 +1,67 @@
+/* pages/card/card.wxss */
+.swiperTtemBox {
+    /* 底部内容样式 */
+    height: 100vh;
+    overflow: scroll;
+    /* margin: 0rpx 0rpx; */
+    background: white;
+    font-size: 28rpx;
+}
+.top-bar {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    font-size: 80rpx;
+    align-items: flex-end;
+    justify-content: center;
+
+    background: skyblue;
+}
+.bottom-bar {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    font-size: 80rpx;
+    align-items: flex-start;
+    justify-content: center;
+    background: rgb(137, 255, 137);
+}
+.left-bar {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    font-size: 80rpx;
+    align-items: center;
+    justify-content: flex-end;
+    background: rgb(255, 70, 70);
+}
+.right-bar {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    font-size: 80rpx;
+    align-items: center;
+    justify-content: flex-start;
+    background: rgb(255, 255, 70);
+}
+.main {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    font-size: 100rpx;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: rgb(244, 244, 244);
+}
+.vertical-text {
+    padding-left: 5%;
+    padding-right: 5%;
+    /* border: 2px solid black; */
+    writing-mode: vertical-lr;
+}
+.horizontal-text {
+    padding-top: 5%;
+    padding-bottom: 5%;
+    /* border: 2px solid black; */
+}

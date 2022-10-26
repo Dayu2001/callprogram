@@ -1,0 +1,49 @@
+<!--pages/card/card.wxml-->
+<!-- <text>pages/card/card.wxml</text> -->
+<!-- <view class="column">
+    <view class="top-bar">撤销</view>
+    <view class="row">
+        <view class="left-bar">旷课</view>
+        <view class="main">000000001 张三</view>
+        <view class="right-bar">请假</view>
+    </view>
+    <view class="bottom-bar">点到</view>
+</view> -->
+<!-- 内容布局 -->
+<view>
+    <swiper class="swiperTtemBox" vertical="true" current="{{vertIndex}}" bindchange="vertPageChange">
+        <swiper-item class="swiperTtemBox">
+            <view class="top-bar">
+                <text class="horizontal-text">撤 销</text>
+            </view>
+        </swiper-item>
+        <swiper-item class="swiperTtemBox">
+            <swiper class="swiperTtemBox" current="{{horiIndex}}" bindchange="horiPageChange">
+                <swiper-item class="swiperTtemBox">
+                    <view class="left-bar">
+                       <text class="vertical-text">旷 课</text>
+                    </view>
+                </swiper-item>
+                <swiper-item class="swiperTtemBox">
+                    <view class="main">
+                        <!-- 学号 + 姓名 -->
+                        <text>{{student_ID}}</text>
+                        <text>{{name}}</text>
+                        <!-- <text>000000001</text>
+                        <text>张三</text> -->
+                    </view>
+                </swiper-item>
+                <swiper-item class="swiperTtemBox">
+                    <view class="right-bar">
+                        <text class="vertical-text">请 假</text>
+                    </view>
+                </swiper-item>
+            </swiper>
+        </swiper-item>
+        <swiper-item class="swiperTtemBox">
+            <view class="bottom-bar">
+                <text class="horizontal-text">点 到</text>
+            </view>
+        </swiper-item>
+    </swiper>
+</view>

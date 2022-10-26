@@ -15,6 +15,10 @@ const formatDate = date => {
 
     return `${[year, month, day].map(formatNumber).join('/')} `
 }
+const formatWeekday = date => {
+    const day = (date.getDay() + 6) % 7 + 1;
+    return `周${day}`
+}
 const formatNumber = n => {
     n = n.toString()
     return n[1] ? n : `0${n}`
@@ -22,5 +26,6 @@ const formatNumber = n => {
 
 module.exports = {
     formatTime,
-    formatDate
+    formatDate,
+    formatWeekday
 }
