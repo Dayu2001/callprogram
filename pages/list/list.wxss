@@ -55,6 +55,7 @@
     /* margin: 0rpx 0rpx; */
     background: white;
     font-size: 28rpx;
+    
 }
 .setting-part {
     /* border: 1px solid lightgreen; */

@@ -22,6 +22,7 @@
             <view class="setting-part">
                 <view class="label-title">课程名称</view>
                 <input class="input-box" placeholder="请输入要点名的课程名称" bindinput="getCourse" />
+
             </view>
             <!-- 任课老师 -->
             <view class="setting-part">
